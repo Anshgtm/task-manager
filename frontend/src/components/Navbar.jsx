@@ -1,8 +1,9 @@
+import app from '../assets/logo.png'
 export default function Navbar({ username, onLogout }) {
   return (
     <header className="navbar">
       <div className="brand">
-        <div className="brand-mark">✓</div>
+        <div className="brand-mark"><img src={app} alt="App Logo" /></div>
         <div>
           <strong>TaskFlow</strong>
           <span>Personal workspace</span>

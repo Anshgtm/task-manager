@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { loginUser } from '../api/api'
+import app from '../assets/logo.png'
 
 export default function Login() {
   const navigate = useNavigate()
@@ -31,9 +32,9 @@ export default function Login() {
       <div className="auth-decoration decor-one" />
       <div className="auth-decoration decor-two" />
       <section className="login-card">
-        <div className="login-brand"><div className="brand-mark large">✓</div><span>TaskFlow</span></div>
+        <div className="login-brand"><div className="brand-mark large"><img src={app} alt="App Logo" /></div><span className='text'>TaskFlow</span></div>
         <p className="eyebrow">TASK MANAGER</p>
-        <h1>Get things done.</h1>
+        <h1>Your tasks, waiting</h1>
         <p className="login-copy">Sign in to your workspace and keep your tasks moving.</p>
 
         <form onSubmit={submit} className="login-form">
