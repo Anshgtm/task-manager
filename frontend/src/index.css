@@ -29,7 +29,7 @@ button {
   padding: 32px 20px;
   position: relative;
   overflow: hidden;
-background:
+  background:
   radial-gradient(circle at 20% 0%, rgba(108,92,231,0.16), transparent 45%),
   radial-gradient(circle at 100% 100%, rgba(60,20,90,0.10), transparent 50%),
   linear-gradient(160deg, #000000 0%, #0A0A0C 45%, #000000 100%);
@@ -138,10 +138,10 @@ span {
 .task-form textarea,
 .search {
   width: 100%;
-  border: 1px solid #dfe3eb;
+  border: 1px solid #1F1F23;
   outline: none;
-  background: #fff;
-  color: #172033;
+  background: #16171d;
+  color: #fff;
   border-radius: 12px;
   padding: 12px 14px;
   transition: 0.2s;
@@ -254,13 +254,26 @@ transition: 0.2s ease;
 
 .app-shell {
   min-height: 100vh;
-  background: #f6f7fb;
+  background-color: #000000;
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(255, 255, 255, 0.05), transparent 40%),
+    radial-gradient(circle at 85% 0%, rgba(255, 255, 255, 0.03), transparent 45%),
+    radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.04), transparent 50%),
+    linear-gradient(180deg, #000000 0%, #0c0c0c 50%, #000000 100%);
+ 
+  min-height: 100vh;
+  color: #e5e5e5;
 }
 .navbar {
   height: 74px;
   padding: 0 max(24px, calc((100vw - 1220px) / 2));
-  background: rgba(255, 255, 255, 0.88);
-  border-bottom: 1px solid #e8ebf2;
+  background-color: #000000;
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(255, 255, 255, 0.05), transparent 40%),
+    radial-gradient(circle at 85% 0%, rgba(255, 255, 255, 0.03), transparent 45%),
+    radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.04), transparent 50%),
+    linear-gradient(180deg, #000000 0%, #0c0c0c 50%, #000000 100%);
+  border-bottom: 1px solid #0E0E0E;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -298,19 +311,66 @@ transition: 0.2s ease;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: #eef2ff;
-  color: #4f46e5;
+  background: radial-gradient(
+    ellipse at bottom,
+    rgba(71, 81, 92, 1) 0%,
+    rgba(11, 21, 30, 1) 45%
+  );
+  color: white;
 }
 .logout-btn {
+  min-width: 120px;
+
+  position: relative;
+  cursor: pointer;
+
+  padding: 10px 17px;
   border: 0;
-  background: transparent;
-  color: #667085;
-  font-size: 13px;
-  font-weight: 600;
+  border-radius: 20px;
+  margin-left: 20px;
+
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  background: radial-gradient(
+    ellipse at bottom,
+    rgba(71, 81, 92, 1) 0%,
+    rgba(11, 21, 30, 1) 45%
+  );
+
+  color: rgb(255, 255, 255, 0.66);
+
+  transition: all 1s cubic-bezier(0.15, 0.83, 0.66, 1);
 }
+
+.logout-btn::before {
+  content: "";
+  width: 70%;
+  height: 1px;
+
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  opacity: 0.2;
+
+  transition: all 1s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+
 .logout-btn:hover {
-  color: #111827;
+  color: rgb(255, 255, 255, 1);
+  transform: scale(1.1) translateY(-3px);
 }
+
+.logout-btn:hover::before {
+  opacity: 1;
+}
+
 .dashboard {
   width: min(1220px, calc(100% - 40px));
   margin: 0 auto;
@@ -318,7 +378,7 @@ transition: 0.2s ease;
 }
 .hero {
   display: flex;
-  align-items: end;
+  align-items: center;
   justify-content: space-between;
   gap: 30px;
   margin-bottom: 28px;
@@ -331,12 +391,12 @@ transition: 0.2s ease;
   margin: 10px 0 0;
 }
 .hero-stat {
-  min-width: 130px;
-  padding: 17px 20px;
-  border: 1px solid #e7e9f1;
+  min-width: 150px;
+  padding: 20px 25px;
+  border: 1px solid #0E0E0E;
   border-radius: 17px;
-  background: white;
-  text-align: right;
+  background: #1F1F23;
+  text-align: center;
 }
 .hero-stat strong {
   display: block;
@@ -352,30 +412,90 @@ transition: 0.2s ease;
   gap: 15px;
   margin-bottom: 24px;
 }
-.stat-card {
-  background: white;
-  border: 1px solid #e7e9f1;
-  border-radius: 17px;
-  padding: 18px;
-  display: flex;
-  align-items: center;
-  gap: 13px;
+.btn-sec {
+  min-width: 120px;
+
+  position: relative;
+  cursor: pointer;
+
+  padding: 10px 17px;
+  border: 0;
+  border-radius: 20px;
+  margin-left: 20px;
+
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  background: radial-gradient(
+    ellipse at bottom,
+    rgba(71, 81, 92, 1) 0%,
+    rgba(11, 21, 30, 1) 45%
+  );
+
+  color: rgb(255, 255, 255, 0.66);
+
+  transition: all 1s cubic-bezier(0.15, 0.83, 0.66, 1);
 }
-.stat-icon {
+
+.btn-sec::before {
+  content: "";
+  width: 70%;
+  height: 1px;
+
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  opacity: 0.2;
+
+  transition: all 1s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+
+.btn-sec:hover {
+  color: rgb(255, 255, 255, 1);
+  transform: scale(1.1) translateY(-3px);
+}
+
+.btn-sec:hover::before {
+  opacity: 1;
+}
+
+  
+
+.stat-card {
+  width: 320px;
+  background: #1F1F23;
+  color: black;
+  position: relative;
+  border-radius: 2.5em;
+  padding: 2em;
+  transition: transform 0.4s ease;
+}
+
+
+.stat-icon img{
   width: 42px;
   height: 42px;
   display: grid;
   place-items: center;
   border-radius: 12px;
-  background: #eef2ff;
   color: #4f46e5;
   font-weight: 700;
 }
 .stat-card strong,
 .stat-card span {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:10px 12px
 }
 .stat-card strong {
+  color:white;
   font: 700 22px "Space Grotesk";
 }
 .stat-card div span {
@@ -402,8 +522,8 @@ transition: 0.2s ease;
 }
 .form-panel,
 .tasks-panel {
-  background: white;
-  border: 1px solid #e7e9f1;
+  background: #1F1F23;
+  border: 1px solid #0E0E0E;
   border-radius: 20px;
 }
 .form-panel {
@@ -527,14 +647,14 @@ transition: 0.2s ease;
   margin: 0;
   font-size: 13px;
 }
-.empty-icon {
+.empty-icon img{
   width: 54px;
   height: 54px;
   display: grid;
   place-items: center;
-  background: #eef2ff;
+  
   color: #4f46e5;
-  border-radius: 50%;
+  border-radius: 30%;
   font-size: 22px;
 }
 .spinner {

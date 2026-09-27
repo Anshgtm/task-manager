@@ -51,7 +51,7 @@ export default function TaskForm({ editingTask, onSubmit, onCancel, submitting }
 
       <div className="form-actions">
         {editingTask && <button type="button" className="btn secondary" onClick={onCancel}>Cancel</button>}
-        <button className="btn primary" disabled={submitting} type="submit">
+        <button className="btn-sec" disabled={submitting} type="submit">
           {submitting ? 'Saving...' : editingTask ? 'Save changes' : 'Add task'}
         </button>
       </div>

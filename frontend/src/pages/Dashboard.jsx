@@ -4,7 +4,9 @@ import { createTask, deleteTask, getTasks, logoutUser, updateTask } from '../api
 import Navbar from '../components/Navbar'
 import TaskCard from '../components/TaskCard'
 import TaskForm from '../components/TaskForm'
-
+import timephoto from '../assets/time.png'
+import taskphoto from '../assets/task.png'
+import checklist from '../assets/checklist.png'
 export default function Dashboard() {
   const navigate = useNavigate()
   const [tasks, setTasks] = useState([])
@@ -75,9 +77,9 @@ export default function Dashboard() {
         </section>
 
         <section className="stats-grid">
-          <div className="stat-card"><span className="stat-icon">✓</span><div><strong>{tasks.length}</strong><span>Tasks</span></div></div>
-          <div className="stat-card"><span className="stat-icon">◷</span><div><strong>{totalMinutes}</strong><span>Minutes planned</span></div></div>
-          <div className="stat-card"><span className="stat-icon">↗</span><div><strong>{tasks.length ? Math.round(totalMinutes / tasks.length) : 0}</strong><span>Avg. task time</span></div></div>
+          <div className="stat-card"><span className="stat-icon"><img src={taskphoto} alt="Tasks" /></span><div><strong>{tasks.length}</strong><span>Tasks</span></div></div>
+          <div className="stat-card"><span className="stat-icon"><img src={timephoto} alt="Minutes planned" /></span><div><strong>{totalMinutes}</strong><span>Minutes planned</span></div></div>
+          <div className="stat-card"><span className="stat-icon"><img src={timephoto} alt="Average task time" /></span><div><strong>{tasks.length ? Math.round(totalMinutes / tasks.length) : 0}</strong><span>Avg. task time</span></div></div>
         </section>
 
         {error && <div className="error-box page-error">{error}<button onClick={() => setError('')}>×</button></div>}
@@ -94,7 +96,7 @@ export default function Dashboard() {
             </div>
 
             {loading ? <div className="empty-state"><div className="spinner" /><p>Loading tasks...</p></div> : filteredTasks.length === 0 ? (
-              <div className="empty-state"><div className="empty-icon">✓</div><h3>{search ? 'No matching tasks' : 'No tasks yet'}</h3><p>{search ? 'Try another search.' : 'Use the form to create your first task.'}</p></div>
+              <div className="empty-state"><div className="empty-icon"><img src= {checklist} alt="" /></div><h3>{search ? 'No matching tasks' : 'No tasks yet'}</h3><p>{search ? 'Try another search.' : 'Use the form to create your first task.'}</p></div>
             ) : (
               <div className="task-list">{filteredTasks.map((task) => <TaskCard key={task._id} task={task} onEdit={setEditingTask} onDelete={handleDelete} />)}</div>
             )}
